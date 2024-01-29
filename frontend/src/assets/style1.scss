@@ -1,0 +1,28 @@
+//@import "bootstrap/dist/css/bootstrap.min.css" 
+$primary: #b52e8a;
+//$secondary: #473579;
+$success: #1f9768;
+$danger: #dc3d10;
+$warning: #d3cc21;
+$info: #dc3491;
+//$body-color: #304455;
+//$info: #73abfe;
+//$gray-100: #f6f6f6;
+$text-muted: #0d6b94;
+//$gray-900: #273849;
+$dark: #273849;
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+$navbar-dark-color: rgba($white, .7);
+
+$navbar-padding-y:                  $spacer * 1;
+$nav-pills-link-active-bg:         $white;
+
+$nav-pills-link-active-color:     $dark;
+$nav-link-hover-color:            $dark;
+$nav-link-color:               $dark;
