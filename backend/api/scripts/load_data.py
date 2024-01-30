@@ -109,5 +109,10 @@ def load_stop_times():
             }
             new_items.append(StopTime(**new_item))
             print(f"StopTime {i}/{lines}", end='\r')
-        print("Bulk creating...")
+            if len(new_items) > 50000:
+                StopTime.objects.bulk_create(new_items)
+                new_items = []
+        
         StopTime.objects.bulk_create(new_items)
+
+        print("Bulk creating...")

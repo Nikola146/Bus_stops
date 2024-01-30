@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build: backend
+    ports:
+      - "8000:8000"
+  nginx: 
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/templates 
+      - ./frontend/dist:/frontend
+    depends_on:
+      - backend
+  database: 
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=niko
+      - POSTGRES_USER=niko
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data

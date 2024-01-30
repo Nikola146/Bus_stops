@@ -12,6 +12,8 @@ ENV PYTHONUNBUFFERED 1
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
+RUN pip install gunicorn
 
 # copy project
 COPY . .
+CMD [ "gunicorn", "peatus_kontroltoo.wsgi", "-b", "0.0.0.0:8000" ]

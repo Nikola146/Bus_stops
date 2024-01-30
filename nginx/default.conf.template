@@ -1,0 +1,29 @@
+server {
+    listen 80;
+
+    # Serve Vue.js app from dist folder by default
+    location / {
+        root /frontend;
+        index index.html;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Proxy requests to /api/ to port 8000
+    location /api/ {
+        proxy_pass http://backend:8000;
+    }
+
+    # Add any other configurations you require here
+
+    # Handle errors
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+
+    location = /404.html {
+        root /usr/share/nginx/html;
+    }
+}
